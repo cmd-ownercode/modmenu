@@ -2,6 +2,10 @@
     "object" == typeof exports && "undefined" != typeof module ? t(exports) : "function" == typeof define && define.amd ? define(["exports"], t) : t(e.dat = {})
 }(this, function(e) {
     "use strict";
+    
+    var switchStyleElement = document.createElement("style");
+    switchStyleElement.textContent = ".switch{font-size:17px;position:relative;display:inline-block;width:2.4em;height:1.6em}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:transparent;border:3px solid #5a5d6e;transition:.4s;border-radius:1em}.slider:before{position:absolute;content:\"\";height:0.7em;width:0.7em;border-radius:50%;left:0.25em;top:0.25em;background-color:#6b7280;transition:.4s}input:checked+.slider{background-color:#A0DCFF;border:3px solid #A0DCFF}input:focus+.slider{box-shadow:0 0 1px #A0DCFF}input:checked+.slider:before{transform:translateX(0.8em);background-color:#2d3748}";
+    document.head.appendChild(switchStyleElement);
 
     function t(e, t) {
         var n = e.__state.conversionName.toString(),
@@ -857,9 +861,18 @@
                 F(this, t);
                 var o = V(this, (t.__proto__ || Object.getPrototypeOf(t)).call(this, e, n)),
                     i = o;
-                return o.__prev = o.getValue(), o.__checkbox = document.createElement("input"), o.__checkbox.setAttribute("type", "checkbox"), X.bind(o.__checkbox, "change", function() {
+                return o.__prev = o.getValue(), 
+                o.__switch = document.createElement("label"), 
+                o.__switch.className = "switch",
+                o.__checkbox = document.createElement("input"), 
+                o.__checkbox.setAttribute("type", "checkbox"), 
+                o.__slider = document.createElement("span"),
+                o.__slider.className = "slider",
+                o.__switch.appendChild(o.__checkbox),
+                o.__switch.appendChild(o.__slider),
+                X.bind(o.__checkbox, "change", function() {
                     i.setValue(!i.__prev)
-                }, !1), o.domElement.appendChild(o.__checkbox), o.updateDisplay(), o
+                }, !1), o.domElement.appendChild(o.__switch), o.updateDisplay(), o
             }
             return j(t, z), P(t, [{
                 key: "setValue",

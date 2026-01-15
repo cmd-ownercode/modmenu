@@ -87,32 +87,32 @@
 
     function h(e, t, n) {
         if (n.__li = t, n.__gui = e, S.extend(n, {
-                options: function(t) {
-                    if (arguments.length > 1) {
-                        var o = n.__li.nextElementSibling;
-                        return n.remove(), f(e, n.object, n.property, {
-                            before: o,
-                            factoryArgs: [S.toArray(arguments)]
-                        })
-                    }
-                    if (S.isArray(t) || S.isObject(t)) {
-                        var i = n.__li.nextElementSibling;
-                        return n.remove(), f(e, n.object, n.property, {
-                            before: i,
-                            factoryArgs: [t]
-                        })
-                    }
-                },
-                name: function(e) {
-                    return n.__li.firstElementChild.firstElementChild.innerHTML = e, n
-                },
-                listen: function() {
-                    return n.__gui.listen(n), n
-                },
-                remove: function() {
-                    return n.__gui.remove(n), n
+            options: function(t) {
+                if (arguments.length > 1) {
+                    var o = n.__li.nextElementSibling;
+                    return n.remove(), f(e, n.object, n.property, {
+                        before: o,
+                        factoryArgs: [S.toArray(arguments)]
+                    })
                 }
-            }), n instanceof q) {
+                if (S.isArray(t) || S.isObject(t)) {
+                    var i = n.__li.nextElementSibling;
+                    return n.remove(), f(e, n.object, n.property, {
+                        before: i,
+                        factoryArgs: [t]
+                    })
+                }
+            },
+            name: function(e) {
+                return n.__li.firstElementChild.firstElementChild.innerHTML = e, n
+            },
+            listen: function() {
+                return n.__gui.listen(n), n
+            },
+            remove: function() {
+                return n.__gui.remove(n), n
+            }
+        }), n instanceof q) {
             var o = new Q(n.object, n.property, {
                 min: n.__min,
                 max: n.__max,
@@ -223,11 +223,11 @@
         r.innerHTML = "Revert", X.addClass(r, "button"), X.addClass(r, "revert");
         var s = e.__preset_select = document.createElement("select");
         if (e.load && e.load.remembered ? S.each(e.load.remembered, function(t, n) {
-                g(e, n, n === e.preset)
-            }) : g(e, se, !1), X.bind(s, "change", function() {
-                for (var t = 0; t < e.__preset_select.length; t++) e.__preset_select[t].innerHTML = e.__preset_select[t].value;
-                e.preset = this.value
-            }), t.appendChild(s), t.appendChild(n), t.appendChild(o), t.appendChild(i), t.appendChild(r), ae) {
+            g(e, n, n === e.preset)
+        }) : g(e, se, !1), X.bind(s, "change", function() {
+            for (var t = 0; t < e.__preset_select.length; t++) e.__preset_select[t].innerHTML = e.__preset_select[t].value;
+            e.preset = this.value
+        }), t.appendChild(s), t.appendChild(n), t.appendChild(o), t.appendChild(i), t.appendChild(r), ae) {
             var a = document.getElementById("dg-local-explain"),
                 l = document.getElementById("dg-local-storage");
             document.getElementById("dg-save-locally").style.display = "block", "true" === localStorage.getItem(m(e, "isLocal")) && l.setAttribute("checked", "checked"), b(e, a), X.bind(l, "change", function() {
@@ -326,13 +326,13 @@
                 if (e)
                     if (A && e.forEach && e.forEach === A) e.forEach(t, n);
                     else if (e.length === e.length + 0) {
-                    var o = void 0,
-                        i = void 0;
-                    for (o = 0, i = e.length; o < i; o++)
-                        if (o in e && t.call(n, e[o], o) === this.BREAK) return
-                } else
-                    for (var r in e)
-                        if (t.call(n, e[r], r) === this.BREAK) return
+                        var o = void 0,
+                            i = void 0;
+                        for (o = 0, i = e.length; o < i; o++)
+                            if (o in e && t.call(n, e[o], o) === this.BREAK) return
+                    } else
+                        for (var r in e)
+                            if (t.call(n, e[r], r) === this.BREAK) return
             },
             defer: function(e) {
                 setTimeout(e, 0)
@@ -1303,72 +1303,72 @@
                 r = void 0,
                 s = void 0;
             if (Object.defineProperties(this, {
-                    parent: {
-                        get: function() {
-                            return o.parent
-                        }
-                    },
-                    scrollable: {
-                        get: function() {
-                            return o.scrollable
-                        }
-                    },
-                    autoPlace: {
-                        get: function() {
-                            return o.autoPlace
-                        }
-                    },
-                    closeOnTop: {
-                        get: function() {
-                            return o.closeOnTop
-                        }
-                    },
-                    preset: {
-                        get: function() {
-                            return n.parent ? n.getRoot().preset : o.load.preset
-                        },
-                        set: function(e) {
-                            n.parent ? n.getRoot().preset = e : o.load.preset = e, E(this), n.revert()
-                        }
-                    },
-                    width: {
-                        get: function() {
-                            return o.width
-                        },
-                        set: function(e) {
-                            o.width = e, w(n, e)
-                        }
-                    },
-                    name: {
-                        get: function() {
-                            return o.name
-                        },
-                        set: function(e) {
-                            o.name = e, s && (s.innerHTML = o.name)
-                        }
-                    },
-                    closed: {
-                        get: function() {
-                            return o.closed
-                        },
-                        set: function(t) {
-                            o.closed = t, o.closed ? X.addClass(n.__ul, e.CLASS_CLOSED) : X.removeClass(n.__ul, e.CLASS_CLOSED), this.onResize(), n.__closeButton && (n.__closeButton.innerHTML = t ? e.TEXT_OPEN : e.TEXT_CLOSED)
-                        }
-                    },
-                    load: {
-                        get: function() {
-                            return o.load
-                        }
-                    },
-                    useLocalStorage: {
-                        get: function() {
-                            return i
-                        },
-                        set: function(e) {
-                            ae && (i = e, e ? X.bind(window, "unload", r) : X.unbind(window, "unload", r), localStorage.setItem(m(n, "isLocal"), e))
-                        }
+                parent: {
+                    get: function() {
+                        return o.parent
                     }
-                }), S.isUndefined(o.parent)) {
+                },
+                scrollable: {
+                    get: function() {
+                        return o.scrollable
+                    }
+                },
+                autoPlace: {
+                    get: function() {
+                        return o.autoPlace
+                    }
+                },
+                closeOnTop: {
+                    get: function() {
+                        return o.closeOnTop
+                    }
+                },
+                preset: {
+                    get: function() {
+                        return n.parent ? n.getRoot().preset : o.load.preset
+                    },
+                    set: function(e) {
+                        n.parent ? n.getRoot().preset = e : o.load.preset = e, E(this), n.revert()
+                    }
+                },
+                width: {
+                    get: function() {
+                        return o.width
+                    },
+                    set: function(e) {
+                        o.width = e, w(n, e)
+                    }
+                },
+                name: {
+                    get: function() {
+                        return o.name
+                    },
+                    set: function(e) {
+                        o.name = e, s && (s.innerHTML = o.name)
+                    }
+                },
+                closed: {
+                    get: function() {
+                        return o.closed
+                    },
+                    set: function(t) {
+                        o.closed = t, o.closed ? X.addClass(n.__ul, e.CLASS_CLOSED) : X.removeClass(n.__ul, e.CLASS_CLOSED), this.onResize(), n.__closeButton && (n.__closeButton.innerHTML = t ? e.TEXT_OPEN : e.TEXT_CLOSED)
+                    }
+                },
+                load: {
+                    get: function() {
+                        return o.load
+                    }
+                },
+                useLocalStorage: {
+                    get: function() {
+                        return i
+                    },
+                    set: function(e) {
+                        ae && (i = e, e ? X.bind(window, "unload", r) : X.unbind(window, "unload", r), localStorage.setItem(m(n, "isLocal"), e))
+                    }
+                }
+            }), S.isUndefined(o.parent)) {
                 if (this.closed = o.closed || !1, X.addClass(this.domElement, e.CLASS_MAIN), X.makeSelectable(this.domElement, !1), ae && i) {
                     n.useLocalStorage = !0;
                     var a = localStorage.getItem(m(this, "gui"));

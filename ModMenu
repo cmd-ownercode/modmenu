@@ -193,17 +193,37 @@
         X.addClass(s, "property-name"), s.innerHTML = i.property;
         var a = document.createElement("div");
         a.appendChild(s), a.appendChild(i.domElement);
-        // FIX: Force flex layout on the wrapper
+        // FIX: Force flex layout on the wrapper with conditional logic
         a.style.display = "flex";
-        a.style.flexDirection = "row";
-        a.style.justifyContent = "space-between";
-        a.style.alignItems = "center";
         a.style.width = "100%";
-        a.style.minHeight = "24px";
-        s.style.flex = "1";
-        s.style.textAlign = "left";
-        i.domElement.style.flex = "0 0 auto";
-        i.domElement.style.float = "none";
+
+        if (i instanceof q) { // Sliders: Label Top, Slider Bottom
+            a.style.flexDirection = "column";
+            a.style.justifyContent = "center";
+            a.style.alignItems = "stretch"; // Full width
+            a.style.padding = "4px 0"; // Minimal padding
+            a.style.minHeight = "auto";
+
+            s.style.flex = "0 0 auto";
+            s.style.width = "100%";
+            s.style.marginBottom = "2px"; // Space between label and slider
+            s.style.textAlign = "left";
+
+            i.domElement.style.flex = "0 0 auto";
+            i.domElement.style.width = "100%";
+            i.domElement.style.float = "none";
+        } else { // Toggle/Others: Label Left, Control Right (Horizontal)
+            a.style.flexDirection = "row";
+            a.style.justifyContent = "space-between";
+            a.style.alignItems = "center";
+            a.style.minHeight = "24px"; // Reduced compact height
+
+            s.style.flex = "1";
+            s.style.textAlign = "left";
+
+            i.domElement.style.flex = "0 0 auto";
+            i.domElement.style.float = "none";
+        }
         // END FIX
         var l = c(e, a, o.before);
         return X.addClass(l, he.CLASS_CONTROLLER_ROW), i instanceof $ ? X.addClass(l, "color") : X.addClass(l, H(i.getValue())), h(e, l, i), e.__controllers.push(i), i

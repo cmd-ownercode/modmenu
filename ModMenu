@@ -197,7 +197,10 @@
         a.style.display = "flex";
         a.style.width = "100%";
 
-        if (i instanceof q) { // Sliders: Label Top, Slider Bottom
+        // Robust check for Slider: instanceof q OR presence of slider class element
+        var isSlider = (i instanceof q) || (i.domElement && i.domElement.querySelector && i.domElement.querySelector('.slider'));
+
+        if (isSlider) { // Sliders: Label Top, Slider Bottom
             a.style.flexDirection = "column";
             a.style.justifyContent = "center";
             a.style.alignItems = "stretch"; // Full width

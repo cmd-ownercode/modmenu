@@ -193,6 +193,18 @@
         X.addClass(s, "property-name"), s.innerHTML = i.property;
         var a = document.createElement("div");
         a.appendChild(s), a.appendChild(i.domElement);
+        // FIX: Force flex layout on the wrapper
+        a.style.display = "flex";
+        a.style.flexDirection = "row";
+        a.style.justifyContent = "space-between";
+        a.style.alignItems = "center";
+        a.style.width = "100%";
+        a.style.minHeight = "24px";
+        s.style.flex = "1";
+        s.style.textAlign = "left";
+        i.domElement.style.flex = "0 0 auto";
+        i.domElement.style.float = "none";
+        // END FIX
         var l = c(e, a, o.before);
         return X.addClass(l, he.CLASS_CONTROLLER_ROW), i instanceof $ ? X.addClass(l, "color") : X.addClass(l, H(i.getValue())), h(e, l, i), e.__controllers.push(i), i
     }

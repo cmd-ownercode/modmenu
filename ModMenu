@@ -204,20 +204,27 @@
         if (isSlider) { // SLIDERS: Vertical Layout (Label on top, slider below)
             a.style.flexDirection = "column";
             a.style.alignItems = "stretch";
-            a.style.padding = "4px 0";
+            a.style.padding = "8px 0"; // More padding for visual separation
+            a.style.margin = "4px 0"; // Add margin to separate from other controls
             a.style.minHeight = "auto";
+            a.style.background = "rgba(0, 0, 0, 0.15)"; // Subtle background
+            a.style.borderRadius = "4px";
 
             s.style.width = "100%";
-            s.style.marginBottom = "4px";
+            s.style.marginBottom = "6px"; // More space between label and slider
             s.style.textAlign = "left";
+            s.style.paddingLeft = "8px";
 
-            i.domElement.style.width = "100%";
+            i.domElement.style.width = "calc(100% - 16px)"; // Account for padding
+            i.domElement.style.marginLeft = "8px";
+            i.domElement.style.marginRight = "8px";
             i.domElement.style.float = "none";
         } else { // TOGGLES/OTHERS: Horizontal Layout (Label left, control right)
             a.style.flexDirection = "row";
             a.style.justifyContent = "space-between";
             a.style.alignItems = "center";
             a.style.minHeight = "24px";
+            a.style.padding = "2px 0"; // Minimal padding for compact look
 
             s.style.flex = "1";
             s.style.textAlign = "left";

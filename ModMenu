@@ -223,19 +223,23 @@
             var sl = i.domElement.querySelector('.slider');
             var inp = i.domElement.querySelector('input');
             if (sl) {
-                sl.style.order = "2"; // 2nd
+                sl.style.position = "static"; // Critical fix for overlap
+                sl.style.order = "2";
                 sl.style.flex = "1";
                 sl.style.width = "auto";
+                sl.style.height = "25px"; // Slightly taller for better usability
                 sl.style.marginTop = "0";
                 sl.style.marginBottom = "0";
-                sl.style.marginLeft = "0";
+                sl.style.marginLeft = "10px";
             }
             if (inp) {
-                inp.style.order = "1"; // 1st
+                inp.style.position = "static"; // Critical fix for overlap
+                inp.style.order = "1";
                 inp.style.width = "50px";
                 inp.style.flex = "0 0 auto";
+                inp.style.marginTop = "0";
                 inp.style.marginLeft = "0";
-                inp.style.marginRight = "5px";
+                inp.style.marginRight = "0";
             }
 
         } else { // TOGGLES/OTHERS: Horizontal Layout (Label left, control right)

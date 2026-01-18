@@ -201,17 +201,19 @@
         a.style.display = "flex";
         a.style.width = "100%";
 
-        if (isSlider) { // SLIDERS: Vertical Layout (Label on top, slider below)
-            a.style.flexDirection = "column";
-            a.style.alignItems = "stretch";
+        if (isSlider) { // SLIDERS: Horizontal Layout (Label left, slider right)
+            a.style.flexDirection = "row";
+            a.style.alignItems = "center";
             a.style.padding = "4px 0";
             a.style.minHeight = "auto";
 
-            s.style.width = "100%";
-            s.style.marginBottom = "4px";
+            s.style.width = "40%";
+            s.style.paddingRight = "5px";
             s.style.textAlign = "left";
+            s.style.whiteSpace = "nowrap";
 
-            i.domElement.style.width = "100%";
+            i.domElement.style.width = "auto";
+            i.domElement.style.flex = "1";
             i.domElement.style.float = "none";
         } else { // TOGGLES/OTHERS: Horizontal Layout (Label left, control right)
             a.style.flexDirection = "row";
